@@ -28,20 +28,6 @@ body {
 #groups-sidebar .d-flex.justify-content-end.gap-2.mt-auto {
     margin-top: auto !important; /* Прижимаем контейнер к низу */
     padding-top: 20px; /* Добавляем немного отступа сверху от списка групп */
-    border-top: 1px solid #dee2e6; /* Добавляем разделительную линию */
-}
-
-/* Дополнительные стили для кнопок (если необходимо) */
-#groups-sidebar .btn-sm {
-    /* Ваши дополнительные стили для маленьких кнопок */
-}
-
-#groups-sidebar .btn-outline-primary {
-    /* Ваши дополнительные стили для кнопки "Добавить" */
-}
-
-#groups-sidebar .btn-primary {
-    /* Ваши дополнительные стили для кнопки "Сохранить" */
 }
 
 #contact-list-container {
