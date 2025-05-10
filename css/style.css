@@ -1,73 +1,75 @@
 body {
-    background-color: #f8f9fa;
-    font-family: 'Segoe UI', sans-serif;
-    display: flex; /* Enable flexbox for the main layout */
+  background-color: #f8f9fa;
+  font-family: 'Segoe UI', sans-serif;
+  display: flex;
 }
 
-/* Стиль для боковой панели групп */
-#groups-sidebar {
-    width: 300px;
-    background-color: #fff;
-    border-right: 1px solid #dee2e6;
-    padding: 20px;
-    position: fixed;
-    top: 0;
-    left: -300px;
-    height: 100vh;
-    transition: transform 0.3s ease-in-out;
-    z-index: 1050;
-    display: flex; /* Включаем flexbox для управления расположением элементов внутри */
-    flex-direction: column; /* Размещаем элементы по вертикали */
+/* Общие боковые панели */
+#groups-sidebar,
+#add-contact-sidebar {
+  width: 300px;
+  background-color: #fff;
+  border-right: 1px solid #dee2e6;
+  padding: 20px;
+  position: fixed;
+  top: 0;
+  left: -300px;
+  height: 100vh;
+  transition: transform 0.3s ease-in-out;
+  z-index: 1050;
+  display: flex;
+  flex-direction: column;
 }
 
+/* Открытие боковых панелей */
 #groups-sidebar.open {
-    transform: translateX(300px);
+  transform: translateX(300px);
 }
 
-/* Стили для контейнера кнопок */
-#groups-sidebar .d-flex.justify-content-end.gap-2.mt-auto {
-    margin-top: auto !important; /* Прижимаем контейнер к низу */
-    padding-top: 20px; /* Добавляем немного отступа сверху от списка групп */
+#add-contact-sidebar.open {
+  transform: translateX(300px);
 }
 
+/* Кнопки у нижнего края */
+#groups-sidebar .d-flex.justify-content-end.gap-2.mt-auto,
+#add-contact-sidebar .mt-auto {
+  margin-top: auto !important;
+  padding-top: 20px;
+}
+
+/* Контейнер контактов */
 #contact-list-container {
-    flex-grow: 1; /* Занимает оставшееся пространство */
-    padding: 20px;
-    transition: margin-left 0.3s ease-in-out, filter 0.3s ease-in-out; /* Анимация сдвига и фильтра */
-    margin-left: 0;
+  flex-grow: 1;
+  padding: 20px;
+  transition: margin-left 0.3s ease-in-out, filter 0.3s ease-in-out;
+  margin-left: 0;
 }
 
-#contact-list-container.sidebar-open {
-    margin-left: 300px; /* Сдвигаем контент вправо */
-}
-
-/* Центрирование списка контактов */
 #contact-list {
-    min-height: 200px; /* Добавим минимальную высоту для списка */
+  min-height: 200px;
 }
 
 #empty-msg {
-    display: none; /* Скрывать сообщение "список пуст" по умолчанию */
+  display: none;
 }
 
-/* Показать сообщение, если список пуст */
 #contact-list:empty + #empty-msg {
-    display: block;
+  display: block;
 }
 
-/* Дополнительные стили для блокировки экрана */
+/* Оверлей */
 #overlay {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0, 0, 0, 0.5); /* Полупрозрачный серый цвет */
-    z-index: 1040; /* Под боковой панелью, но над остальным контентом */
-    display: none; /* Скрыт по умолчанию */
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 1040;
+  display: none;
 }
 
 #contact-list-container.inactive {
-    pointer-events: none; /* Запретить взаимодействие с элементами */
-    filter: grayscale(80%); /* Обесцветить */
+  pointer-events: none;
+  filter: grayscale(80%);
 }
